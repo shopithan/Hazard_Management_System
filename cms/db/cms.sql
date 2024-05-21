@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2024 at 06:03 PM
+-- Generation Time: May 20, 2024 at 08:39 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -86,7 +86,9 @@ CREATE TABLE `complaintremark` (
 
 INSERT INTO `complaintremark` (`id`, `complaintNumber`, `status`, `remark`, `remarkDate`) VALUES
 (1, 1, 'in process', 'Thank you for bringing this urgent matter to my attention. The safety and well-being of our employees and visitors are our top priorities, and I appreciate your prompt action in addressing the situation and informing us.', '2024-05-19 17:20:25'),
-(2, 2, 'in process', 'stage 1', '2024-05-20 15:14:56');
+(2, 2, 'in process', 'stage 1', '2024-05-20 15:14:56'),
+(3, 6, 'closed', 'closed', '2024-05-20 16:47:40'),
+(4, 1, 'in process', 'stage 2', '2024-05-20 16:53:46');
 
 -- --------------------------------------------------------
 
@@ -109,7 +111,7 @@ CREATE TABLE `state` (
 INSERT INTO `state` (`id`, `stateName`, `stateDescription`, `postingDate`, `updationDate`) VALUES
 (1, 'IT Support Operator', '', '2024-05-19 17:09:45', '20-05-2024 08:42:20 PM'),
 (2, 'Production Management Operator', '', '2024-05-19 17:10:03', '20-05-2024 08:42:44 PM'),
-(3, 'First Aid Response Operator', '', '2024-05-20 15:13:27', ''),
+(3, 'First Aid Response Operator', '', '2024-05-20 15:13:27', '20-05-2024 10:18:06 PM'),
 (4, 'Electrical Systems Operator', '', '2024-05-20 15:13:36', ''),
 (5, 'Physical Security Operator', '', '2024-05-20 15:13:44', ''),
 (6, 'Quality Control Operate', '', '2024-05-20 15:13:55', '');
@@ -177,12 +179,12 @@ CREATE TABLE `tblcomplaints` (
 --
 
 INSERT INTO `tblcomplaints` (`complaintNumber`, `userId`, `category`, `subcategory`, `complaintType`, `state`, `noc`, `complaintDetails`, `complaintFile`, `regDate`, `status`, `lastUpdationDate`) VALUES
-(1, 2, 1, 'Blood', ' Complaint', 'Eastern', 'Urgent: Biological Hazard Concern - Blood Contamination', 'I am writing to bring to your immediate attention a serious biological hazard that I encountered During my routine duties, I discovered a significant spill of blood on the floor and surrounding surfaces.', '1.JPG', '2024-05-19 17:16:11', 'in process', '2024-05-19 17:20:25'),
-(2, 3, 1, 'Fecal matter', 'General Query', 'Eastern', '123', '123', 'Screenshot_19-5-2024_224748_localhost.jpeg', '2024-05-20 14:51:15', 'in process', '2024-05-20 15:14:56'),
+(1, 2, 1, 'Blood', ' Complaint', 'Eastern', 'Urgent: Biological Hazard Concern - Blood Contamination', 'I am writing to bring to your immediate attention a serious biological hazard that I encountered During my routine duties, I discovered a significant spill of blood on the floor and surrounding surfaces.', '1.JPG', '2024-05-01 17:16:11', 'in process', '2024-05-20 17:08:39'),
+(2, 3, 1, 'Fecal matter', 'General Query', 'Eastern', '123', '123', 'Screenshot_19-5-2024_224748_localhost.jpeg', '2024-05-02 14:51:15', 'in process', '2024-05-20 17:09:52'),
 (3, 3, 1, 'Mildew and molds', 'General Query', 'Eastern', '67657', '56767', '', '2024-05-20 14:52:56', NULL, '0000-00-00 00:00:00'),
 (4, 3, 2, 'Chemical-resistant coveralls', ' Complaint', 'Eastern', '6567', 'tryr67', '', '2024-05-20 14:54:50', NULL, '0000-00-00 00:00:00'),
 (5, 3, 1, 'Blood', 'General Query', 'Eastern', '7777', '88', 'Screenshot_19-5-2024_225053_localhost.jpeg', '2024-05-20 14:58:13', NULL, '0000-00-00 00:00:00'),
-(6, 3, 1, 'Bacteria and viruses', 'General Query', 'Eastern', '78', '878', '', '2024-05-20 14:58:49', NULL, '0000-00-00 00:00:00');
+(6, 3, 1, 'Bacteria and viruses', 'General Query', 'Eastern', '78', '878', '', '2024-05-20 14:58:49', 'closed', '2024-05-20 16:47:40');
 
 -- --------------------------------------------------------
 
@@ -219,7 +221,10 @@ INSERT INTO `userlog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`,
 (12, 3, 'gayesha@mail.com', 0x3a3a3100000000000000000000000000, '2024-05-20 14:52:39', '20-05-2024 08:24:19 PM', 1),
 (13, 3, 'gayesha@mail.com', 0x3a3a3100000000000000000000000000, '2024-05-20 14:54:29', '', 1),
 (14, 3, 'gayesha@mail.com', 0x3a3a3100000000000000000000000000, '2024-05-20 14:57:15', '20-05-2024 08:32:39 PM', 1),
-(15, 3, 'gayesha@mail.com', 0x3a3a3100000000000000000000000000, '2024-05-20 15:54:39', '20-05-2024 09:25:12 PM', 1);
+(15, 3, 'gayesha@mail.com', 0x3a3a3100000000000000000000000000, '2024-05-20 15:54:39', '20-05-2024 09:25:12 PM', 1),
+(16, 0, 'abc@mail.com', 0x3a3a3100000000000000000000000000, '2024-05-20 16:35:24', '', 0),
+(17, 3, 'gayesha@mail.com', 0x3a3a3100000000000000000000000000, '2024-05-20 16:37:29', '20-05-2024 10:13:15 PM', 1),
+(18, 3, 'gayesha@mail.com', 0x3a3a3100000000000000000000000000, '2024-05-20 17:11:39', '20-05-2024 10:44:52 PM', 1);
 
 -- --------------------------------------------------------
 
@@ -250,7 +255,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `fullName`, `userEmail`, `password`, `contactNo`, `address`, `State`, `country`, `pincode`, `userImage`, `regDate`, `updationDate`, `status`) VALUES
 (1, 'John Smith', 'john@gmail.com', '202cb962ac59075b964b07152d234b70', 9999999999, NULL, NULL, NULL, NULL, NULL, '2020-05-08 14:10:50', '2020-05-08 14:16:22', 1),
 (2, 'M Shopithan', 'shopi3100@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 123456, NULL, NULL, NULL, NULL, NULL, '2024-05-19 08:37:46', '0000-00-00 00:00:00', 1),
-(3, 'Gayesha', 'gayesha@mail.com', '202cb962ac59075b964b07152d234b70', 774124569, NULL, NULL, NULL, NULL, NULL, '2024-05-20 14:43:22', '0000-00-00 00:00:00', 1);
+(3, 'Gayesha', 'gayesha@mail.com', '202cb962ac59075b964b07152d234b70', 774124569, 'A1', 'IT Support Operator', 'Sri Lanka', 1111, NULL, '2024-05-20 14:43:22', '2024-05-20 16:42:10', 1);
 
 --
 -- Indexes for dumped tables
@@ -324,7 +329,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `complaintremark`
 --
 ALTER TABLE `complaintremark`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `state`
@@ -348,7 +353,7 @@ ALTER TABLE `tblcomplaints`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
